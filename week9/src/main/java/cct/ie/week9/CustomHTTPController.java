@@ -22,26 +22,29 @@ public class CustomHTTPController {
 	}
 
 	@GetMapping("login")
-	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
+	public User login(@RequestParam("email") String email, @RequestParam("password") String password) {
+		User user = new User();
+		
+		for (int i = 0; i < person.size(); i++) {
 
-		if (email.equals("john") && password.equals("12345")) {
-			return "Works";
-		} else {
-			throw new UnauthorizedException();
+			if (email.equals(person.get(i).getEmail()) && password.equals(person.get(i).getPassword())) {
+				user = person.get(i);
+			} 
 		}
+		return user;
 
 	}
 
 	@GetMapping("/getPerson")
-	public User getPerson1(@RequestParam String name) {
+	public User getPerson1(@RequestParam String email) {
 		User a = new User();
 
 		for (int i = 0; i < person.size(); i++) {
-			if (person.get(i).getName().equals(name)) {
+			if (person.get(i).getEmail().equals(email)) {
 				a = person.get(i);
 				return a;
-			} 
-			
+			}
+
 		}
 
 		return a;

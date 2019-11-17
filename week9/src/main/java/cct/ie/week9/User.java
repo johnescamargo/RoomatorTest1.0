@@ -14,28 +14,18 @@ public class User {
 	double longitude;
 	private ArrayList<String> hobbies = new ArrayList<>();
 
-	public User(int id, String name, String email, String password, boolean smoker, int age, double latitude,
-			double longitude, ArrayList<String> hobbies) {
-		this.id = id;
-		this.name = name;
+	public User(String email, String password) {
+
 		this.email = email;
 		this.password = password;
-		this.smoker = smoker;
-		this.age = age;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.hobbies = hobbies;
+
 	}
-	
-	
 
 	/**
 	 * 
 	 */
 	public User() {
 	}
-	
-
 
 	public int getId() {
 		return id;
